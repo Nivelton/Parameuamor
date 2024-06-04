@@ -30,7 +30,7 @@
 <br>
 <a href="https://nivelton.github.io/Parameuamor/Declarações/TextoDN.html" target="_blank">Clique para acessar o código Texto
 <br>
-<a href="https://nivelton.github.io/Parameuamor/SiteFoto/untitled.html" target="_blank">Clique para acessar o código Playlist
+<a href="https://nivelton.github.io/Parameuamor/Sitefoto/untitled.html" target="_blank">Clique para acessar o código Playlist
 <br>
 <a href="https://nivelton.github.io/Parameuamor/música/Música.html" target="_blank">Clique para acessar o código Nossa Música
 <br>
