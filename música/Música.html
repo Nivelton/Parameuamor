@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <style>
+    body {
+      background-color: black;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      padding: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .time,
+    .playlist-title {
+      font-size: 16px;
+    }
+
+    .music-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    .music-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .music-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+
+    .music-artist {
+      font-size: 18px;
+    }
+
+    .music-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .music-control-button {
+      padding: 10px;
+      border-radius: 50%;
+      background-color: black;
+      color: lightBlue;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+      transition: transform 0.1s;
+    }
+
+    .music-control-button:hover {
+      background-color: black;
+    }
+
+    .music-control-button:active {
+      transform: scale(0.95);
+    }
+
+    .music-progress-bar {
+      width: 100%;
+      height: 5px;
+      background-color: #808080;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .music-progress-bar-fill {
+      height: 100%;
+      background-color: #ffffff;
+      border-radius: 10px;
+      width: 0;
+    }
+
+    .music-time {
+      font-size: 14px;
+    }
+
+    .letra-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      background-color: #f0a500;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .letra-button:hover {
+      background-color: #e09500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="playlist-title">TOCANDO DA PLAYLIST</div>
+      <div class="playlist-title">Nossa Playlist #1</div>
+    </div>
+    <img src="5.jpg" alt="Music Album Cover" class="music-image">
+    <div class="music-info">
+      <div class="music-title">Nossa música</div>
+      <div class="music-artist">- Belo</div>
+    </div>
+    <audio id="audio-player" src="Belo - Farol Das Estrelas(MP3_160K).mp3"></audio>
+    <div class="music-controls">
+      <div class="music-time" id="current-time">0:00</div>
+      <div class="music-control-button" id="previous-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L3.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
+        </svg>
+      </div>
+      <div class="music-control-button" id="play-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+        </svg>
+      </div>
+      <div class="music-control-button" id="next-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h10.793L9.146 4.354a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L12.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+        </svg>
+      </div>
+      <div class="music-time" id="duration">0:00</div>
+    </div>
+    <div class="music-progress-bar" id="progress-bar">
+      
+      <div class="music-progress-bar-fill" id="progress-bar-fill"></div>
+    </div>
+  </div>
+
+  <script>
+    const audioPlayer = document.getElementById('audio-player');
+    const playButton = document.getElementById('play-button');
+    const progressBarFill = document.getElementById('progress-bar-fill');
+    const currentTimeElem = document.getElementById('current-time');
+    const durationElem = document.getElementById('duration');
+
+    playButton.addEventListener('click', () => {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16"><path d="M5.5 3.5A.5.5 0 0 1 6 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm5 0A.5.5 0 0 1 11 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/></svg>';
+      } else {
+        audioPlayer.pause();
+        playButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>';
+      }
+    });
+
+    audioPlayer.addEventListener('timeupdate', () => {
+      const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+      progressBarFill.style.width = progress + '%';
+      
+      currentTimeElem.textContent = formatTime(audioPlayer.currentTime);
+      durationElem.textContent = formatTime(audioPlayer.duration);
+    });
+
+    function formatTime(time) {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60);
+      return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+    const progressBar = document.getElementById('progress-bar');
+
+progressBar.addEventListener('click', (event) => {
+  const clickPosition = event.clientX - progressBar.getBoundingClientRect().left;
+  const progressBarWidth = progressBar.clientWidth;
+  const progress = (clickPosition / progressBarWidth) * 100;
+  const duration = audioPlayer.duration;
+  const newTime = (progress * duration) / 100;
+  audioPlayer.currentTime = newTime;
+});
+  </script>
+</body>
+</html>

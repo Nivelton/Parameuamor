@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>saiba</title>
+<style>
+    body {
+        text-align: center;
+        background-color: blue;
+    }
+    
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    #texto {
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: white;
+    }
+
+    button {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        margin-top: 20px;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <p id="texto">Esse é</p>
+
+        <button onclick="proximaTexto()">Próximo</button>
+    </div>
+
+<script>
+    var textos = [
+        "Esse é",
+        "um lembrete com afeto",
+        "de que você é",
+        "Um lindo lugar para se estar, um pôr do sol único e poético, um universo de possibilidades, um horizonte de esperança, um abraço que salva o dia, um ser lindo de alma",
+        "Você é um conjunto das coisas mais incríveis da vida"
+    ];
+    var indiceAtual = 0;
+    var textoElemento = document.getElementById("texto");
+    var buttonElemento = document.querySelector("button");
+
+    function proximaTexto() {
+        indiceAtual = (indiceAtual + 1) % textos.length;
+        textoElemento.textContent = textos[indiceAtual];
+        
+        if (indiceAtual === textos.length - 1) {
+            buttonElemento.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
