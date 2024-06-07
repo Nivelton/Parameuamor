@@ -1,6 +1,10 @@
 # Parameuamor
  Declarações (resolução para celular)
 
+<h1>Mil milhões em cada universo</h1>
+<a href="https://nivelton.github.io/Parameuamor/Te amo em Marvel/Capa.html" target="_blank">Clique para acessar o código: Te amo em Marvel
+<br>
+<br>
 <a href="https://nivelton.github.io/Parameuamor/Declarações/Batimentos.html" target="_blank">Clique para acessar: o código Batimentos</a>
 <br>
 <a href="https://nivelton.github.io/Parameuamor/Declarações/2.6.24.html" target="_blank">Clique para acessar: o código 2.6.24
@@ -36,5 +40,3 @@
 <br>
 <a href="https://nivelton.github.io/Parameuamor/site/Index.html" target="_blank">Clique para acessar: o código Login
 <br>
-<h1>Mil milhões em cada universo</h1>
-<a href="https://nivelton.github.io/Parameuamor/Te amo em Marvel/Capa.html" target="_blank">Clique para acessar o código: Te amo em Marvel
