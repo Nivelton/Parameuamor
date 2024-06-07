@@ -4,7 +4,7 @@
 <h1>Te amo Mil milhões em cada universo</h1>
 Clique para acessar o código:<a href="https://nivelton.github.io/Parameuamor/Te amo em Marvel/Capa.html" target="_blank"> Te amo em Marvel</a>
 <br>
-Clique para acessar o código:<a href="https://nivelton.github.io/Parameuamor/Te amo em Marvel 2.0/Capa.html" target="_blank"> Te amo em Marvel</a>
+Clique para acessar o código:<a href="https://nivelton.github.io/Parameuamor/Te amo em Marvel 2.0/Capa.html" target="_blank"> Te amo em Marvel V2</a>
 <br>
 <br>
 <h1>Declarações</h1>
