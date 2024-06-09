@@ -4,7 +4,7 @@
 <h1>Te amo em cada universo</h1>
 Clique para acessar o código:<a href="https://nivelton.github.io/Parameuamor/Te amo em Marvel/Capa.html" target="_blank"> Te amo em Marvel</a>
 <br>
-Clique para acessar o código:<a href="https://nivelton.github.io/Parameuamor/Te amo em Disney/Index.html" target="_blank"> Te amo em Disney</a>
+Clique para acessar o código:<a href="https://nivelton.github.io/Parameuamor/Te amo em Disney/Capa.html" target="_blank"> Te amo em Disney</a>
 <br>
 <br>
 <h1>Declarações</h1>
